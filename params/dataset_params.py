@@ -1,6 +1,7 @@
 # Author: Tomas Hodan (hodantom@cmp.felk.cvut.cz)
 # Center for Machine Perception, Czech Technical University in Prague
 
+import os
 import math
 from os.path import join as pjoin
 
@@ -13,7 +14,7 @@ def get_dataset_params(name, model_type='', train_type='', test_type='',
          'train_type': train_type, 'test_type': test_type, 'cam_type': cam_type}
 
     # Path to the folder with datasets
-    common_base_path = '/path/to/datasets/'
+    common_base_path = os.environ["SIXD_ROOT"]
 
     # Path to the T-LESS Toolkit (https://github.com/thodan/t-less_toolkit)
     tless_tk_path = '/path/to/t-less_toolkit/'
