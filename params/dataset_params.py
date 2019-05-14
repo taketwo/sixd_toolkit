@@ -40,7 +40,7 @@ def get_dataset_params(name, model_type='', train_type='', test_type='',
         p['obj_count'] = 30
         p['scene_count'] = 20
 
-        p['base_path'] = pjoin(common_base_path, 't-less', 't-less_v2')
+        p['base_path'] = pjoin(common_base_path, 'tless')
         p['im_id_pad'] = 4
         p['model_texture_mpath'] = None
 
@@ -49,8 +49,7 @@ def get_dataset_params(name, model_type='', train_type='', test_type='',
         if p['test_type'] == '': p['test_type'] = 'primesense'
         if p['cam_type'] == '': p['cam_type'] = 'primesense'
 
-        p['cam_params_path'] = pjoin(tless_tk_path, 'cam',
-                                     'camera_' + p['cam_type'] + '.yml')
+        p['cam_params_path'] = pjoin(p['base_path'], 'camera_' + p['cam_type'] + '.yml')
         if p['test_type'] in ['primesense', 'kinect']:
             p['test_im_size'] = (720, 540)
         elif p['test_type'] == 'canon':
