@@ -161,7 +161,7 @@ def load_errors(path):
 
 def save_errors(path, errors):
     with open(path, 'w') as f:
-        line_tpl = '- {{im_id: {:d}, obj_id: {:d}, est_id: {:d}, ' \
+        line_tpl = '- {{scene_id: {:d}, im_id: {:d}, obj_id: {:d}, est_id: {:d}, ' \
                        'score: {:.8f}, errors: {}}}\n'
         error_tpl = '{:d}: {:.8f}'
         txt = ''
@@ -170,7 +170,7 @@ def save_errors(path, errors):
             for gt_id, error in e['errors'].items():
                 txt_errors_elems.append(error_tpl.format(gt_id, error))
             txt_errors = '{' + ', '.join(txt_errors_elems) + '}'
-            txt += line_tpl.format(e['im_id'], e['obj_id'], e['est_id'],
+            txt += line_tpl.format(e['scene_id'], e['im_id'], e['obj_id'], e['est_id'],
                                    e['score'], txt_errors)
         f.write(txt)
 
